@@ -15,3 +15,4 @@ pip install websocket-client
 |:---|:---|
 |post.py|Belugaに投稿します|
 |ws.py|BelugaのWebSocketサーバーに接続し情報をリアルタイムに取得します|
+|bot.py|リプライに反応してオウム返しするシンプルなbotです|
