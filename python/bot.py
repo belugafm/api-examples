@@ -61,13 +61,13 @@ class Bot:
         print(console_green("response successfully posted"), responce_text)
 
 class Request:
-    def __init__(self):
+    def __init__(self, access_token, access_token_secret):
         protocol = "https"
         domain = "new.beluga.fm"
         api_version = "v1"
         self.url = "{}://{}/api/{}/status/update".format(protocol, domain, api_version)
-        self.access_token = "YOUR_ACCESS_TOKEN"
-        self.access_token_secret = "YOUR_ACCESS_TOKEN_SECRET"
+        self.access_token = access_token
+        self.access_token_secret = access_token_secret
     
     def send(self, query):
         headers = {
@@ -79,7 +79,10 @@ class Request:
         return json.loads(responce.text)
 
 def main():
-    request = Request()
+    access_token = "your_access_token"
+    access_token_secret = "your_access_token_secret"
+
+    request = Request(access_token, access_token_secret)
     bot = Bot("beluga", request)
         
     def on_message(ws, message):
