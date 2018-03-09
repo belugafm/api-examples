@@ -1,9 +1,9 @@
 const WebSocket = require("ws")
 
-var ascii_red = "\u001b[1;31m"
-var ascii_green = "\u001b[1;32m"
-var ascii_cyan = "\u001b[1;36m"
-var ascii_reset = "\u001b[0m"
+const ascii_red = "\u001b[1;31m"
+const ascii_green = "\u001b[1;32m"
+const ascii_cyan = "\u001b[1;36m"
+const ascii_reset = "\u001b[0m"
 
 const console_green_bold = text => {
 	return `${ascii_green}${text}${ascii_reset}`
