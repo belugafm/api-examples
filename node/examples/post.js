@@ -12,8 +12,8 @@ const request = axios.create({
 })
 
 // APIキー
-const access_token = "YOUR_ACCESS_TOKEN"
-const access_token_secret = "YOUR_ACCESS_TOKEN_SECRET"
+const access_token = "your_access_token"
+const access_token_secret = "your_access_token_secret"
 
 // 投稿先
 const hashtag_id = "5a8da737f734407078dd9583"

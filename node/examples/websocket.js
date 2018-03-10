@@ -17,11 +17,10 @@ const console_red_bold = text => {
 
 // 再接続を自動的に行う
 class WebSocketClient {
-	constructor(protocol, domain, port, endpoint) {
+	constructor(protocol, domain, port) {
 		this.protocol = protocol
 		this.port = port
 		this.domain = domain
-		this.endpoint = endpoint
 		this.listeners = []
 		this.initial_reconnect_interval = 1000	// ミリ秒
 		this.max_reconnect_interval = 30000		// ミリ秒
@@ -36,7 +35,7 @@ class WebSocketClient {
 				this.ws.removeEventListener(listener.name, listener.callback)
 			}
 		}
-		const url = `${this.protocol}://${this.domain}:${this.port}/${this.endpoint}`
+		const url = `${this.protocol}://${this.domain}:${this.port}`
 		const ws = new WebSocket(url)
 		ws.onclose = event => {
 			console.log(console_red_bold("closed websocket connection"))
@@ -67,12 +66,7 @@ class WebSocketClient {
 const protocol = "wss"
 const domain = "new.beluga.fm"
 const port = 8080
-
-// どのページにユーザーが滞在しているかをサーバーに教える
-// この情報を元にオンライン一覧が更新されるため、載りたくない場合は空にする
-const endpoint = "server/beluga/public"
-
-const client = new WebSocketClient(protocol, domain, port, endpoint)
+const client = new WebSocketClient(protocol, domain, port)
 
 client.addEventListener("message", event => {
 	const data = JSON.parse(event.data)

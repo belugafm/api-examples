@@ -108,16 +108,12 @@ def main():
     protocol = "wss"
     domain = "new.beluga.fm"
     port = 8080
-
-    # どのページにユーザーが滞在しているかをサーバーに教える
-    # この情報を元にオンライン一覧が更新されるため、載りたくない場合は空にする
-    endpoint = "server/beluga/public"
     
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("{}://{}:{}/{}".format(protocol, domain, port, endpoint), 
-                                                                on_message=on_message,
-                                                                on_error=on_error,
-                                                                on_close=on_close)
+    ws = websocket.WebSocketApp("{}://{}:{}".format(protocol, domain, port), 
+                                                    on_message=on_message,
+                                                    on_error=on_error,
+                                                    on_close=on_close)
 
     ws.on_open = on_open
     ws.run_forever()
