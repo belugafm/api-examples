@@ -30,8 +30,8 @@ class Bot:
     def build_query(self, status):
         query = {}
 
-        if "hashtag_id" in status:
-            query["hashtag_id"] = status["hashtag_id"]
+        if "channel_id" in status:
+            query["channel_id"] = status["channel_id"]
             return query
 
         if "recipient_id" in status:

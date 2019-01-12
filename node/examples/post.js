@@ -16,7 +16,7 @@ const access_token = "your_access_token"
 const access_token_secret = "your_access_token_secret"
 
 // 投稿先
-const hashtag_id = "5a8da737f734407078dd9583"
+const channel_id = "5a8da737f734407078dd9583"
 const text = "ふー"
 
 // 投稿する
@@ -24,7 +24,7 @@ request
 	.post("/status/update", {
 		access_token,
 		access_token_secret,
-		hashtag_id,
+		channel_id,
 		text
 	})
 	.then(res => {
